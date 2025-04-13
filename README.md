@@ -4,6 +4,10 @@ This project predicts a student's likelihood of being admitted to UCLA based on 
 
 The model uses a trained **Multi-Layer Perceptron (MLP)** classifier built with **scikit-learn**, and includes a **Streamlit UI** for user interaction via manual input.
 
+## Live Demo
+
+https://ucla-admission-prediction-yuozl4rzy3dryn2gkuspwc.streamlit.app/
+
 ## Model Architecture
 
 - **Model Type:** MLPClassifier (scikit-learn)
