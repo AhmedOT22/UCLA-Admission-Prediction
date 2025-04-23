@@ -1,5 +1,3 @@
-# train_sklearn_model.py
-
 from src.data_processing import preprocess, data_loading
 from src.models import building, training, visualization, evaluation
 from src.config import MODEL_DIR

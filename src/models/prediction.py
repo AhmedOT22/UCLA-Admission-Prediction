@@ -27,3 +27,10 @@ def align_features(df_encoded, reference_columns):
         if col not in df_encoded.columns:
             df_encoded[col] = 0
     return df_encoded[reference_columns]
+
+def get_admission_probability(model, scaled_input):
+    if hasattr(model, "predict_proba"):
+        prob = model.predict_proba(scaled_input)[0][1]  # Class 1 (Admitted)
+        return prob
+    else:
+        raise ValueError("Model does not support probability prediction.")
