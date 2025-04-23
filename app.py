@@ -15,6 +15,14 @@ st.set_page_config(page_title="UCLA Admission Predictor", layout="centered")
 st.title("🎓 UCLA Admission Chance Predictor")
 st.markdown("Enter your academic profile below to check your predicted admission outcome.")
 
+# --- Load Custom Styles ---
+def load_custom_styles():
+    with open("src/assets/style.css") as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+load_custom_styles()
+
+
 # --- Load Model & Scaler ---
 model, scaler = load_model_and_scaler()
 reference_columns = pd.read_csv(PROCESSED_DATA_DIR / "Admission_processed.csv").drop("Admit_Chance", axis=1).columns
@@ -54,10 +62,6 @@ if submit:
 
         st.markdown(f"**Feedback:** {feedback}")
         st.markdown("**Note:** This is a statistical model and should not be the sole basis for your application decisions.")
-
-        # Input summary
-        with st.expander("📋 View Your Input Summary"):
-            st.dataframe(user_input.T.rename(columns={0: "Your Entry"}))
 
     except Exception as e:
         st.error(f"Something went wrong during prediction: {e}")
